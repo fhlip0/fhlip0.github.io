@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fhlipZero.io</title>
+    <link>/</link>
+    <description>Recent content on fhlipZero.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Jan 2021 14:31:41 -0500</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Weblogic Replication Ftw Kinda</title>
+      <link>/posts/weblogic-replication-ftw-kinda/</link>
+      <pubDate>Sun, 24 Jan 2021 14:31:41 -0500</pubDate>
+      
+      <guid>/posts/weblogic-replication-ftw-kinda/</guid>
+      <description>Simple Weblogic Learnings While working an internal engagement, I&amp;rsquo;m tripping over Weblogic instances for days. Dipped into ysoserial plenty and ended up with some luck based off CVE-2020–14882 which was partially patched meaning I tweaked it and got an auth bypass but with zero privilege, so barely worth noting.
+There were some backup servers running with exposed NFS shares though&amp;hellip;
+After digging through them and doing some googling on the folder structure, I&amp;rsquo;m looking at is weblogic directories&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Tripping Over Xss</title>
+      <link>/posts/tripping-over-xss/</link>
+      <pubDate>Sun, 24 Jan 2021 14:03:56 -0500</pubDate>
+      
+      <guid>/posts/tripping-over-xss/</guid>
+      <description>Quite literally, tripping over XSS While working an engagement, I was manually soft stepping through https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XSS%20Injection and noting things as I went when all of the sudden&amp;hellip;
+This was reported to Laurent / Joplin and a fix implented in the following major version, not the most exciting finding but still a first CVE for me.
+https://www.exploit-db.com/exploits/49024
+ # Exploit Title: Joplin 1.2.6 Cross Site Scripting # Date: 2020-09-21 # Exploit Author: Philip Holbrook (@fhlipZero) # Vendor Homepage: https://joplinapp.</description>
+    </item>
+    
+  </channel>
+</rss>
