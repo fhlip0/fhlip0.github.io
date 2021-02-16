@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Weblogic Replication Ftw Kinda // fhlipZero.io</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="fhlipZero" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/css/main.min.4ecfaf0fad326fd2372656e8f93c8e08fdf9cc68303b415113906ec014c50acd.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Weblogic Replication Ftw Kinda"/>
+<meta name="twitter:description" content="Simple Weblogic Learnings While working an internal engagement, I&rsquo;m tripping over Weblogic instances for days. Dipped into ysoserial plenty and ended up with some luck based off CVE-2020–14882 which was partially patched meaning I tweaked it and got an auth bypass but with zero privilege, so barely worth noting.
+There were some backup servers running with exposed NFS shares though&hellip;
+After digging through them and doing some googling on the folder structure, I&rsquo;m looking at is weblogic directories&hellip;"/>
+
+    <meta property="og:title" content="Weblogic Replication Ftw Kinda" />
+<meta property="og:description" content="Simple Weblogic Learnings While working an internal engagement, I&rsquo;m tripping over Weblogic instances for days. Dipped into ysoserial plenty and ended up with some luck based off CVE-2020–14882 which was partially patched meaning I tweaked it and got an auth bypass but with zero privilege, so barely worth noting.
+There were some backup servers running with exposed NFS shares though&hellip;
+After digging through them and doing some googling on the folder structure, I&rsquo;m looking at is weblogic directories&hellip;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/weblogic-replication-ftw-kinda/" />
+<meta property="article:published_time" content="2021-01-24T14:31:41-05:00" />
+<meta property="article:modified_time" content="2021-01-24T14:31:41-05:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href=""><img class="app-header-avatar" src="/avatar.jpg" alt="fhlipZero" /></a>
+      <h1>fhlipZero.io</h1>
+      <p>Write ups and random notes on my adventures through InfoSec</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://twitter.com/fhlipZero" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Weblogic Replication Ftw Kinda</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jan 24, 2021
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          2 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h3 id="simple-weblogic-learnings">Simple Weblogic Learnings</h3>
+<p>While working an internal engagement, I&rsquo;m tripping over Weblogic instances for days. Dipped into ysoserial plenty and ended up with some luck based off CVE-2020–14882 which was partially patched meaning I tweaked it and got an auth bypass but with zero privilege, so barely worth noting.</p>
+<p>There were some backup servers running with exposed NFS shares though&hellip;</p>
+<p>After digging through them and doing some googling on the folder structure, I&rsquo;m looking at is weblogic directories&hellip;</p>
+<p>Lets say it looked like below just to put a visual to it:</p>
+<p><img src="../_resources/e547efd5cfbc4457858182369dca296b.png" alt="b0b14653634f67dc346993d5fd4ca49f.png"></p>
+<p>Even better I had read only to the whole pile, again staretd the digging (and maybe a hail mary massive find command looking for anything resembling &ldquo;passw&rdquo;) and finally&hellip; boot.properties</p>
+<p><img src="../_resources/fda651e7a18349f5a76238a326a4ef83.png" alt="cb38ae1a2008303f4cb8bb85a7da51b7.png"></p>
+<p>Turns out this config is from Weblogic 12.1.3 when they used AES encryption for the passwords which allows decryption&hellip; but only locally&hellip;</p>
+<p>So following something like: <a href="https://geekflare.com/decrypt-weblogic-password/">https://geekflare.com/decrypt-weblogic-password/</a></p>
+<p>one should be able to run</p>
+<pre><code>C:\Oracle\Middleware\Oracle_Home\oracle_common\common\bin\wlst.sh (or wlst.cmd)
+</code></pre><p>followed with the necessary environment variables:</p>
+<pre><code>domain = &quot;/user_projects/domains/domain_name&quot;
+service = weblogic.security.internal.SerializedSystemIni.getEncryptionService(domain)
+encryption = weblogic.security.internal.encryption.ClearOrEncryptedService(service)
+</code></pre><p>The finally feeding in the hash from boot.properties with</p>
+<pre><code>print encryption.decrypt(&quot;{AES}WDhZb5/IP95P4eM8jwYITiZs01kawSeliV59aFog1jE=&quot;)
+</code></pre><p>Being that I have read only permission, I was able to pull down this entire structure and insert it into a lab environment, successfully decrypting the password</p>
+<h2 id="weblogic123">weblogic123</h2>
+<p>which is obviously demo&hellip; So lots of effort for lots of nothing since that default cred was long gone, still an interesting exercise</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
