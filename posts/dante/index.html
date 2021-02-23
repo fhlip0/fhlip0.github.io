@@ -91,7 +91,7 @@ Host hop2
 <p>So now <code>ssh -R 8001:10.0.1.122:8001 hop2</code> carries port 8001 from my local box, to the hop2 machine exposing it to the rest of that internal network.</p>
 <p>For two hops this time
 <code>ssh -R 8001:127.0.01:8001 hop2</code> tells ssh to carry local port 8001 through each hop resulting on a listening port on hop2 that&rsquo;ll reach back to our attacker box. Seen below is an example of my ssh config, then demonstrating the connection to hop2:8001 calling back to my local kali python3 web server.</p>
-<img src="../resources/ssh.png" width="1264" height="756" /><p>
+<img src="../resources/ssh.png" width="756" height="1264" /><p>
 <h3 id="enumeration">Enumeration</h3>
 <p>Seriously keep this one simple, enumerate the hosts through your pivot and just pick one. You&rsquo;ll find the low hanging fruit in no time and start popping shells. From there, cred use kicks in and you&rsquo;ll need to be diliegent about popping a box, harvesting creds, and then checking for reuse on other boxes. Same goes for checking local accounts for interesting things that may point to a next hop or step in the game.</p>
 <h3 id="c2_usage">C2_Usage</h3>
