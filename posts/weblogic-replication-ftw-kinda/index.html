@@ -70,7 +70,7 @@ After digging through them and doing some googling on the folder structure, I&rs
 <p>There were some backup servers running with exposed NFS shares though&hellip;</p>
 <p>After digging through them and doing some googling on the folder structure, I&rsquo;m looking at is weblogic directories&hellip;</p>
 <p>Lets say it looked like below just to put a visual to it:</p>
-<p><img src="../resources/e547efd5cfbc4457858182369dca296b.png" width="982" height="343"></p>
+<p><img src="../resources/e547efd5cfbc4457858182369dca296b.png" width="492" height="343"></p>
 <p>Even better I had read only to the whole pile, again staretd the digging (and maybe a hail mary massive find command looking for anything resembling &ldquo;passw&rdquo;) and finally&hellip; boot.properties</p>
 <p><img src="../resources/fda651e7a18349f5a76238a326a4ef83.png" width="721" height="278"></p>
 <p>Turns out this config is from Weblogic 12.1.3 when they used AES encryption for the passwords which allows decryption&hellip; but only locally&hellip;</p>
