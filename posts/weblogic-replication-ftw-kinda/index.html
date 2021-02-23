@@ -70,9 +70,9 @@ After digging through them and doing some googling on the folder structure, I&rs
 <p>There were some backup servers running with exposed NFS shares though&hellip;</p>
 <p>After digging through them and doing some googling on the folder structure, I&rsquo;m looking at is weblogic directories&hellip;</p>
 <p>Lets say it looked like below just to put a visual to it:</p>
-<p><img src="../_resources/e547efd5cfbc4457858182369dca296b.png" alt="b0b14653634f67dc346993d5fd4ca49f.png"></p>
+<p><img src="../resources/e547efd5cfbc4457858182369dca296b.png" alt="b0b14653634f67dc346993d5fd4ca49f.png"></p>
 <p>Even better I had read only to the whole pile, again staretd the digging (and maybe a hail mary massive find command looking for anything resembling &ldquo;passw&rdquo;) and finally&hellip; boot.properties</p>
-<p><img src="../_resources/fda651e7a18349f5a76238a326a4ef83.png" alt="cb38ae1a2008303f4cb8bb85a7da51b7.png"></p>
+<p><img src="../resources/fda651e7a18349f5a76238a326a4ef83.png" alt="cb38ae1a2008303f4cb8bb85a7da51b7.png"></p>
 <p>Turns out this config is from Weblogic 12.1.3 when they used AES encryption for the passwords which allows decryption&hellip; but only locally&hellip;</p>
 <p>So following something like: <a href="https://geekflare.com/decrypt-weblogic-password/">https://geekflare.com/decrypt-weblogic-password/</a></p>
 <p>one should be able to run</p>
