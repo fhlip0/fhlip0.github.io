@@ -3,17 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/posts/dante/</loc>
-    <lastmod>2021-02-15T22:47:55-05:00</lastmod>
+    <loc>/</loc>
+    <lastmod>2021-05-17T19:10:17-04:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2021-02-15T22:47:55-05:00</lastmod>
+    <loc>/posts/playing_with_payloads/</loc>
+    <lastmod>2021-05-17T19:10:17-04:00</lastmod>
   </url>
   
   <url>
     <loc>/posts/</loc>
+    <lastmod>2021-05-17T19:10:17-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/how_m1_macs_affect_internal_pentests/</loc>
+    <lastmod>2021-04-17T01:09:08-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/zero_2_domain_admin/</loc>
+    <lastmod>2021-04-17T01:04:29-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/dante/</loc>
     <lastmod>2021-02-15T22:47:55-05:00</lastmod>
   </url>
   
