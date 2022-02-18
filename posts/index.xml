@@ -6,7 +6,38 @@
     <description>Recent content in Posts on fhlipZero.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Feb 2021 22:47:55 -0500</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 May 2021 19:10:17 -0400</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Playing_with_payloads</title>
+      <link>/posts/playing_with_payloads/</link>
+      <pubDate>Mon, 17 May 2021 19:10:17 -0400</pubDate>
+      
+      <guid>/posts/playing_with_payloads/</guid>
+      <description>00_Intro I keep playing with different payloads as they come across twitter, they are usually good for a day or 2 max then Defender / everyone else starts catching it, figure I spent time playing with each of them so best to document it somewhere. Need to play with other general shellcode loaders and examples i have from the mr-un1kod3r course: https://github.com/Mr-Un1k0d3r/Shellcoding
+urbanbishop ebowla scarecrow pezor alaris
+urbanbishop https://github.com/slyd0g/UrbanBishopLocal
+Super simple - git clone, make raw payload in cobalt strike, convert it, add it to the VS project and replace the XOR key, build for x64.</description>
+    </item>
+    
+    <item>
+      <title>How_M1_Macs_Affect_Internal_PenTests</title>
+      <link>/posts/how_m1_macs_affect_internal_pentests/</link>
+      <pubDate>Sat, 17 Apr 2021 01:09:08 -0400</pubDate>
+      
+      <guid>/posts/how_m1_macs_affect_internal_pentests/</guid>
+      <description>Title options How Apples M1 Silicon has affected Internal Penetration Testing clickbait? Does deploying M1 Macs mean greater security for your business and trouble for your next red team engagement?
+Apples release of their M1 SoC (system-on-chip) in late 2020 has proven to be a processing and efficiency powerhouse, bringing technology like Rosetta 2, allowing the lines to blur between the strong iPad Pro and desktop mac. As with any new technology, the intrigue quickly shifts to concern as to how long it will be till we see one of these in the wild.</description>
+    </item>
+    
+    <item>
+      <title>Zero_2_domain_admin</title>
+      <link>/posts/zero_2_domain_admin/</link>
+      <pubDate>Sat, 17 Apr 2021 01:04:29 -0400</pubDate>
+      
+      <guid>/posts/zero_2_domain_admin/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Dante</title>
       <link>/posts/dante/</link>
