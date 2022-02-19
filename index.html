@@ -57,6 +57,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="blogs/1_tripping_xss/tripping-over-xss.html" />
+    
     
 
     </head>
@@ -91,6 +93,72 @@
             
                     
                     Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="blogs/1_tripping_xss/tripping-over-xss.html">
+            
+                <a href="blogs/1_tripping_xss/tripping-over-xss.html">
+            
+                    
+                    Tripping Over XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="blogs/2_weblogic/weblogic-replication-ftw-kinda.html">
+            
+                <a href="blogs/2_weblogic/weblogic-replication-ftw-kinda.html">
+            
+                    
+                    Weblogic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="blogs/3_dante/dante.html">
+            
+                <a href="blogs/3_dante/dante.html">
+            
+                    
+                    Dante
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter active" data-level="3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Notes
             
                 </a>
             
@@ -143,92 +211,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p><img src="https://gitlab.com/pages/gitbook/badges/master/build.svg" alt="Build Status"></p>
+                                <h4 id="general-writeups-or-collections-of-pentest-notes-writeups-tinkering">General writeups or collections of Pentest notes, writeups, tinkering</h4>
 <hr>
-<p>Example <a href="https://www.gitbook.com/" target="_blank">GitBook</a> website using GitLab Pages.</p>
-<p>Learn more about GitLab Pages at <a href="https://pages.gitlab.io" target="_blank">https://pages.gitlab.io</a> and the official
-documentation <a href="https://docs.gitlab.com/ce/user/project/pages/" target="_blank">https://docs.gitlab.com/ce/user/project/pages/</a>.</p>
 <hr>
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<p><strong>Table of Contents</strong>  <em>generated with <a href="https://github.com/thlorenz/doctoc" target="_blank">DocToc</a></em></p>
-<ul>
-<li><a href="#gitlab-ci">GitLab CI</a></li>
-<li><a href="#building-locally">Building locally</a></li>
-<li><a href="#gitlab-user-or-group-pages">GitLab User or Group Pages</a></li>
-<li><a href="#did-you-fork-this-project">Did you fork this project?</a></li>
-<li><a href="#troubleshooting">Troubleshooting</a></li>
-</ul>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-<h2 id="gitlab-ci">GitLab CI</h2>
-<p>This project&apos;s static Pages are built by <a href="https://about.gitlab.com/gitlab-ci/" target="_blank">GitLab CI</a>, following the steps
-defined in <a href=".gitlab-ci.yml"><code>.gitlab-ci.yml</code></a>:</p>
-<pre><code class="lang-yaml"><span class="hljs-comment"># requiring the environment of NodeJS 10</span>
-<span class="hljs-attr">image:</span> node:<span class="hljs-number">10</span>
-
-<span class="hljs-comment"># add &apos;node_modules&apos; to cache for speeding up builds</span>
-<span class="hljs-attr">cache:</span>
-<span class="hljs-attr">  paths:</span>
-<span class="hljs-bullet">    -</span> node_modules/ <span class="hljs-comment"># Node modules and dependencies</span>
-
-<span class="hljs-attr">before_script:</span>
-<span class="hljs-bullet">  -</span> npm install gitbook-cli -g <span class="hljs-comment"># install gitbook</span>
-<span class="hljs-bullet">  -</span> gitbook fetch <span class="hljs-number">3.2</span><span class="hljs-number">.3</span> <span class="hljs-comment"># fetch final stable version</span>
-<span class="hljs-bullet">  -</span> gitbook install <span class="hljs-comment"># add any requested plugins in book.json</span>
-
-<span class="hljs-attr">test:</span>
-<span class="hljs-attr">  stage:</span> test
-<span class="hljs-attr">  script:</span>
-<span class="hljs-bullet">    -</span> gitbook build . public <span class="hljs-comment"># build to public path</span>
-<span class="hljs-attr">  only:</span>
-<span class="hljs-bullet">    -</span> branches <span class="hljs-comment"># this job will affect every branch except &apos;master&apos;</span>
-<span class="hljs-attr">  except:</span>
-<span class="hljs-bullet">    -</span> master
-
-<span class="hljs-comment"># the &apos;pages&apos; job will deploy and build your site to the &apos;public&apos; path</span>
-<span class="hljs-attr">pages:</span>
-<span class="hljs-attr">  stage:</span> deploy
-<span class="hljs-attr">  script:</span>
-<span class="hljs-bullet">    -</span> gitbook build . public <span class="hljs-comment"># build to public path</span>
-<span class="hljs-attr">  artifacts:</span>
-<span class="hljs-attr">    paths:</span>
-<span class="hljs-bullet">      -</span> public
-<span class="hljs-attr">    expire_in:</span> <span class="hljs-number">1</span> week
-<span class="hljs-attr">  only:</span>
-<span class="hljs-bullet">    -</span> master <span class="hljs-comment"># this job will affect only the &apos;master&apos; branch</span>
-</code></pre>
-<h2 id="building-locally">Building locally</h2>
-<p>To work locally with this project, you&apos;ll have to follow the steps below:</p>
-<ol>
-<li>Fork, clone or download this project</li>
-<li><a href="http://toolchain.gitbook.com/setup.html" target="_blank">Install</a> GitBook <code>npm install gitbook-cli -g</code></li>
-<li>Fetch GitBook&apos;s latest stable version <code>gitbook fetch latest</code></li>
-<li>Preview your project: <code>gitbook serve</code></li>
-<li>Add content</li>
-<li>Generate the website: <code>gitbook build</code> (optional)</li>
-<li>Push your changes to the master branch: <code>git push</code></li>
-</ol>
-<p>Read more at GitBook&apos;s <a href="http://toolchain.gitbook.com" target="_blank">documentation</a>.</p>
-<h2 id="gitlab-user-or-group-pages">GitLab User or Group Pages</h2>
-<p>To use this project as your user/group website, you will need one additional
-step: just rename your project to <code>namespace.gitlab.io</code>, where <code>namespace</code> is
-your <code>username</code> or <code>groupname</code>. This can be done by navigating to your
-project&apos;s <strong>Settings</strong>.</p>
-<p>Read more about <a href="https://docs.gitlab.com/ce/user/project/pages/introduction.html#user-or-group-pages" target="_blank">user/group Pages</a> and <a href="https://docs.gitlab.com/ce/user/project/pages/introduction.html#project-pages" target="_blank">project Pages</a>.</p>
-<h2 id="did-you-fork-this-project">Did you fork this project?</h2>
-<p>If you forked this project for your own use, please go to your project&apos;s
-<strong>Settings</strong> and remove the forking relationship, which won&apos;t be necessary
-unless you want to contribute back to the upstream project.</p>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<ol>
-<li><p>CSS is missing! That means two things:</p>
-<p> Either that you have wrongly set up the CSS URL in your templates, or
- your static generator has a configuration option that needs to be explicitly
- set in order to serve static assets under a relative URL.</p>
-</li>
-</ol>
-<hr>
-<p>Forked from @virtuacreative</p>
 
                                 
                                 </section>
@@ -257,6 +242,10 @@ unless you want to contribute back to the upstream project.</p>
             
                 
                 
+                <a href="blogs/1_tripping_xss/tripping-over-xss.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Tripping Over XSS">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
             
         
     </div>
@@ -264,7 +253,7 @@ unless you want to contribute back to the upstream project.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2022-02-16T22:06:20.315Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-18T23:02:57.005Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Tripping Over XSS","level":"2.1","depth":1,"path":"blogs/1_tripping_xss/tripping-over-xss.md","ref":"blogs/1_tripping_xss/tripping-over-xss.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2022-02-19T19:00:42.549Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-19T19:02:16.289Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
