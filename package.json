@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "collapsible-menu": "^1.0.10",
     "graceful-fs": "^4.2.9"
   }
 }

