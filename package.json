@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "collapsible-menu": "^1.0.10",
+    "gitbook-plugin-remove-published-with-link": "^1.0.3",
     "graceful-fs": "^4.2.9"
   }
 }
