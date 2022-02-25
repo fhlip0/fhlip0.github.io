@@ -319,7 +319,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h3 id="simple-weblogic-learnings">Simple Weblogic Learnings</h3>
-<p>While working an internal engagement, I&apos;m tripping over Weblogic instances for days. Dipped into ysoserial plenty and ended up with some luck based off CVE-2020&#x2013;14882 which was partially patched meaning I tweaked it and got an auth bypass but with zero privilege, so barely worth noting. </p>
+<p>While working an internal engagement, I&apos;m tripping over Weblogic instances for days. Dipped into ysoserial plenty and ended up with something that loaded a broken admin page but no functions worked. </p>
 <p>There were some backup servers running with exposed NFS shares though... </p>
 <p>After digging through them and doing some googling on the folder structure, I&apos;m looking at is weblogic directories...</p>
 <p>Lets say it looked like below just to put a visual to it: </p>
@@ -334,11 +334,11 @@
 <pre><code>domain = &quot;/user_projects/domains/domain_name&quot;
 service = weblogic.security.internal.SerializedSystemIni.getEncryptionService(domain)
 encryption = weblogic.security.internal.encryption.ClearOrEncryptedService(service)
-</code></pre><p>The finally feeding in the hash from boot.properties with</p>
+</code></pre><p>Then finally feeding in the hash from boot.properties with</p>
 <pre><code>print encryption.decrypt(&quot;{AES}WDhZb5/IP95P4eM8jwYITiZs01kawSeliV59aFog1jE=&quot;)
 </code></pre><p>Being that I have read only permission, I was able to pull down this entire structure and insert it into a lab environment, successfully decrypting the password </p>
 <h2 id="weblogic123">weblogic123</h2>
-<p>which is obviously demo... So lots of effort for lots of nothing since that default cred was long gone, still an interesting exercise</p>
+<p>which is obviously a demo... So lots of effort for lots of nothing since that default cred was long gone, still an interesting exercise</p>
 
                                 
                                 </section>
@@ -382,7 +382,7 @@ encryption = weblogic.security.internal.encryption.ClearOrEncryptedService(servi
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Weblogic","date":"2021-01-24T19:31:41.000Z","draft":false,"level":"2.2","depth":1,"next":{"title":"Dante","level":"2.3","depth":1,"path":"blogs/3_dante/dante.md","ref":"blogs/3_dante/dante.md","articles":[]},"previous":{"title":"Tripping Over XSS","level":"2.1","depth":1,"path":"blogs/1_tripping_xss/tripping-over-xss.md","ref":"blogs/1_tripping_xss/tripping-over-xss.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-favicon","remove-published-with-link","-sharing","collapsible-menu"],"root":"/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"avatar.ico","custom-favicon":{},"remove-published-with-link":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"fontsettings":{"theme":"night"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"blogs/2_weblogic/weblogic-replication-ftw-kinda.md","mtime":"2022-02-19T19:00:42.553Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-22T23:38:28.502Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Weblogic","date":"2021-01-24T19:31:41.000Z","draft":false,"level":"2.2","depth":1,"next":{"title":"Dante","level":"2.3","depth":1,"path":"blogs/3_dante/dante.md","ref":"blogs/3_dante/dante.md","articles":[]},"previous":{"title":"Tripping Over XSS","level":"2.1","depth":1,"path":"blogs/1_tripping_xss/tripping-over-xss.md","ref":"blogs/1_tripping_xss/tripping-over-xss.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-favicon","remove-published-with-link","-sharing","collapsible-menu"],"root":"/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"avatar.ico","custom-favicon":{},"remove-published-with-link":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"fontsettings":{"theme":"night"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"blogs/2_weblogic/weblogic-replication-ftw-kinda.md","mtime":"2022-02-25T02:03:05.636Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-25T02:05:45.004Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
