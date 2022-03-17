@@ -115,7 +115,20 @@
         
         
     
-        <li class="chapter " data-level="2.1" data-path="../1_tripping_xss/tripping-over-xss.html">
+        <li class="chapter " data-level="2.1" data-path="../6_noVNC/noVNC.html">
+            
+                <a href="../6_noVNC/noVNC.html">
+            
+                    
+                    Phishy noVNC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../1_tripping_xss/tripping-over-xss.html">
             
                 <a href="../1_tripping_xss/tripping-over-xss.html">
             
@@ -128,7 +141,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2" data-path="../2_weblogic/weblogic-replication-ftw-kinda.html">
+        <li class="chapter " data-level="2.3" data-path="../2_weblogic/weblogic-replication-ftw-kinda.html">
             
                 <a href="../2_weblogic/weblogic-replication-ftw-kinda.html">
             
@@ -141,7 +154,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.3" data-path="dante.html">
+        <li class="chapter active" data-level="2.4" data-path="dante.html">
             
                 <a href="dante.html">
             
@@ -154,7 +167,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4" data-path="../4_m1_macs/m1_macs.html">
+        <li class="chapter " data-level="2.5" data-path="../4_m1_macs/m1_macs.html">
             
                 <a href="../4_m1_macs/m1_macs.html">
             
@@ -167,7 +180,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.5" data-path="../5_gitbook/gitbook_readme.html">
+        <li class="chapter " data-level="2.6" data-path="../5_gitbook/gitbook_readme.html">
             
                 <a href="../5_gitbook/gitbook_readme.html">
             
@@ -362,7 +375,7 @@ Host hop2
 <p>So now <code>ssh -R 8001:10.0.1.122:8001 hop2</code> carries port 8001 from my local box, to the hop2 machine exposing it to the rest of that internal network.</p>
 <p>For two hops this time
 <code>ssh -R 8001:127.0.01:8001 hop2</code> tells ssh to carry local port 8001 through each hop resulting on a listening port on hop2 that&apos;ll reach back to our attacker box. Seen below is an example of my ssh config, then demonstrating the connection to hop2:8001 calling back to my local kali python3 web server.</p>
-<p><img src="../_resources/ssh.png" alt="Pasted image 20210215222244.png"></p>
+<p><img src="ssh.png" alt="SSH Testing" width="300"></p>
 <h3 id="enumeration">Enumeration</h3>
 <p>Seriously keep this one simple, enumerate the hosts through your pivot and just pick one. You&apos;ll find the low hanging fruit in no time and start popping shells. From there, cred use kicks in and you&apos;ll need to be diliegent about popping a box, harvesting creds, and then checking for reuse on other boxes. Same goes for checking local accounts for interesting things that may point to a next hop or step in the game.</p>
 <h3 id="c2usage">C2_Usage</h3>
@@ -411,7 +424,7 @@ Host hop2
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Dante","date":"2021-02-16T03:47:55.000Z","draft":false,"level":"2.3","depth":1,"next":{"title":"M1 Macs","level":"2.4","depth":1,"path":"blogs/4_m1_macs/m1_macs.md","ref":"blogs/4_m1_macs/m1_macs.md","articles":[]},"previous":{"title":"Weblogic","level":"2.2","depth":1,"path":"blogs/2_weblogic/weblogic-replication-ftw-kinda.md","ref":"blogs/2_weblogic/weblogic-replication-ftw-kinda.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-favicon","remove-published-with-link","-sharing","collapsible-menu","wide-page"],"root":"/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"wide-page":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"avatar.ico","custom-favicon":{},"remove-published-with-link":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"fontsettings":{"theme":"night"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"blogs/3_dante/dante.md","mtime":"2022-02-19T19:00:42.553Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-03-17T10:30:21.346Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Dante","date":"2021-02-16T03:47:55.000Z","draft":false,"level":"2.4","depth":1,"next":{"title":"M1 Macs","level":"2.5","depth":1,"path":"blogs/4_m1_macs/m1_macs.md","ref":"blogs/4_m1_macs/m1_macs.md","articles":[]},"previous":{"title":"Weblogic","level":"2.3","depth":1,"path":"blogs/2_weblogic/weblogic-replication-ftw-kinda.md","ref":"blogs/2_weblogic/weblogic-replication-ftw-kinda.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-favicon","remove-published-with-link","-sharing","collapsible-menu","wide-page"],"root":"/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"wide-page":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"avatar.ico","custom-favicon":{},"remove-published-with-link":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"fontsettings":{"theme":"night"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"blogs/3_dante/dante.md","mtime":"2022-03-17T10:31:50.952Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-03-17T10:32:56.242Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

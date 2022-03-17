@@ -113,7 +113,20 @@
         
         
     
-        <li class="chapter " data-level="2.1" data-path="../../blogs/1_tripping_xss/tripping-over-xss.html">
+        <li class="chapter " data-level="2.1" data-path="../../blogs/6_noVNC/noVNC.html">
+            
+                <a href="../../blogs/6_noVNC/noVNC.html">
+            
+                    
+                    Phishy noVNC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../blogs/1_tripping_xss/tripping-over-xss.html">
             
                 <a href="../../blogs/1_tripping_xss/tripping-over-xss.html">
             
@@ -126,7 +139,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2" data-path="../../blogs/2_weblogic/weblogic-replication-ftw-kinda.html">
+        <li class="chapter " data-level="2.3" data-path="../../blogs/2_weblogic/weblogic-replication-ftw-kinda.html">
             
                 <a href="../../blogs/2_weblogic/weblogic-replication-ftw-kinda.html">
             
@@ -139,7 +152,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="../../blogs/3_dante/dante.html">
+        <li class="chapter " data-level="2.4" data-path="../../blogs/3_dante/dante.html">
             
                 <a href="../../blogs/3_dante/dante.html">
             
@@ -152,7 +165,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4" data-path="../../blogs/4_m1_macs/m1_macs.html">
+        <li class="chapter " data-level="2.5" data-path="../../blogs/4_m1_macs/m1_macs.html">
             
                 <a href="../../blogs/4_m1_macs/m1_macs.html">
             
@@ -165,7 +178,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.5" data-path="../../blogs/5_gitbook/gitbook_readme.html">
+        <li class="chapter " data-level="2.6" data-path="../../blogs/5_gitbook/gitbook_readme.html">
             
                 <a href="../../blogs/5_gitbook/gitbook_readme.html">
             
@@ -516,7 +529,34 @@ died here and never picked back up on its own, had to control c and run the last
 <p>soooooo no back to the beginning of saturday, i need to root and basic setup<br>nice and easy this time - <a href="https://forum.xda-developers.com/t/guide-android-11-how-to-root-oneplus-7t.4253183/" target="_blank">https://forum.xda-developers.com/t/guide-android-11-how-to-root-oneplus-7t.4253183/</a>  </p>
 <p>developer options / build 7 times / developer options enabled, unlocking oem unlocking enabled<br>oem unlocking fails, its definitely ticked in settings</p>
 <p>running through the get_unlock_code deal and waiting for the code from oneplus / tmobile<br><a href="https://www.oneplus.com/support/answer/detail/op588" target="_blank">https://www.oneplus.com/support/answer/detail/op588</a></p>
+<p>03-7-2022 - UNLOCK CODE ARRIVED - <a href="https://www.oneplus.com/unlock_token?type=1&amp;apply_id=NUMBER" target="_blank">https://www.oneplus.com/unlock_token?type=1&amp;apply_id=NUMBER</a></p>
+<p>IMEI : 9900<strong><em>*</em></strong>004
+Serial Number : 49<strong><em>aa3
+Email : fhl<em>*</em></em></strong>@gmail.com
+Status : Finished
+Update time : 2022.03.07 07:38:12</p>
+<pre><code>./fastboot flash cust-unlock ./unlock_code.bin
+./fastbook oem unlock
 
+./fastbook flash recovery ./twrp-3.6.0_11-0-hotdog.img
+
+copied over magisk apk from - https://github.com/topjohnwu/Magisk/releases/tag/v24.2   
+booted recovery / twrp   
+installed magisk.apk   
+reboot   
+
+
+now to get SSL pinning bypassed...  
+
+navigate to burp proxy in chrome  
+download burp cert and rename der to cer  
+install for wifi and apps / vpn  
+add this module (zipped) to magisk - https://github.com/NVISOsecurity/MagiskTrustUserCerts/releases/tag/v0.4.1    
+traffic is now proxying successfully   
+
+
+added bonus of hiding magisk and deny listing the target app to bypass root detection
+</code></pre>
                                 
                                 </section>
                             
@@ -555,7 +595,7 @@ died here and never picked back up on its own, had to control c and run the last
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Mobile","level":"3.1.4","depth":2,"previous":{"title":"shells","level":"3.1.3.2","depth":3,"path":"notes/linux/shells.md","ref":"notes/linux/shells.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-favicon","remove-published-with-link","-sharing","collapsible-menu","wide-page"],"root":"/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"wide-page":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"avatar.ico","custom-favicon":{},"remove-published-with-link":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"fontsettings":{"theme":"night"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"notes/mobile/oneplus_7_root.md","mtime":"2022-02-28T02:49:26.456Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-03-17T10:30:21.346Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Mobile","level":"3.1.4","depth":2,"previous":{"title":"shells","level":"3.1.3.2","depth":3,"path":"notes/linux/shells.md","ref":"notes/linux/shells.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-favicon","remove-published-with-link","-sharing","collapsible-menu","wide-page"],"root":"/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"wide-page":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"avatar.ico","custom-favicon":{},"remove-published-with-link":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"fontsettings":{"theme":"night"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"notes/mobile/oneplus_7_root.md","mtime":"2022-03-17T10:31:50.952Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-03-17T10:32:56.242Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
