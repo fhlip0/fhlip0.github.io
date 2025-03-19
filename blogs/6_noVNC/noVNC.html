@@ -1,7 +1,7 @@
 
 <!DOCTYPE HTML>
-<html lang="" >
-    <head>
+<html class="color-theme-2" data-theme="dark" class="color-theme-2" data-theme="dark" class="color-theme-2" data-theme="dark" class="color-theme-2" data-theme="dark" lang="" >
+    <head><script></script>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Phishy noVNC · GitBook</title>
@@ -69,8 +69,8 @@
     <link rel="prev" href="../../" />
     
 
-    </head>
-    <body>
+    <script>document.documentElement.classList.add("color-theme-2"); document.documentElement.dataset.theme="dark"; localStorage.setItem("theme", "2");</script><meta name="color-scheme" content="dark"><script src="/force-dark.js"></script><meta name="color-scheme" content="dark"><script src="/dark-theme.js"></script><script src="/dark-theme.js"></script><meta name="color-scheme" content="dark"><script src="/dark-theme.js"></script><script src="/dark-theme.js"></script><meta name="color-scheme" content="dark"><script src="/dark-theme.js"></script><script src="/dark-theme.js"></script></head>
+    <body class="color-theme-2" class="color-theme-2" class="color-theme-2" class="color-theme-2">
         
 <div class="book">
     <div class="book-summary">
@@ -383,7 +383,7 @@ docker run -it -p6901:6901 accetto/ubuntu-vnc-xfce-firefox-g3 /bin/bash
 <li>yanked headless from sudo group - gpasswd -d headless sudo</li>
 <li>Finally an updated password for the VNC session - lets make it obnoxious so the final URL looks somewhat better - <a href="http://fhlipzero.xxx/okta.html?autoconnect=true&amp;resize=remote&amp;password=9VO4e1wXMO2E3MsjKB6BYng3WaC33c3d6NzFU195v" target="_blank">http://fhlipzero.xxx/okta.html?autoconnect=true&amp;resize=remote&amp;password=9VO4e1wXMO2E3MsjKB6BYng3WaC33c3d6NzFU195v</a></li>
 </ul>
-<p><img src="pretty.png" alt="img" width="500"></p>
+<p><img src="../../blogs/6_noVNC/pretty.png" alt="img" width="500"></p>
 <p>Happy with the results, lets lock it down and get it ready for mass deployment: <code>docker commit ID firefox/client:auto</code></p>
 <p>I tinkered with getting firefox to open to my phishing page automatically on docker run via a Dockerfile or docker-compose.yml but... I&apos;m shit at docker and the clock is ticking. So lazy way it is and this is all I&apos;m running to get all the containers up and running with the phishing page already open and in kiosk mode:</p>
 <pre><code>docker run -d --add-host evilginx_domain:ip -p6901:6901 --name user1 firefox/client:auto
@@ -462,7 +462,7 @@ Setup the virtualhost file in apache to handle the subdomains
 Evilginx is a single lure for me to capture creds on, I can track per user by the noVNC logs later
 </code></pre><p>My t3a (2 vCPU and 8GB ram) is running 20 containers pretty well right now   </p>
 <p>Some OPSEC considerations - kiosk breakout is very possible, you can easily get into the firefox settings and then start roaming the system as the docker headless user. I was able to pop the browser console open by hitting ALT + SHIFT + J, then hit right click the menu bar and &quot;Minimize all other windows&quot;. From there its a desktop right click and &quot;Terminal&quot; away from desktop access here. </p>
-<p><img src="error.png" alt="breakout" width="500"><br>This was a whole ass day just to tuck evilginx into a weird container and keep it safe... god i hope it works. Giant shoutout to mrd0x, this was an awesome dive to go down and gives me more ideas of how this could be used.</p>
+<p><img src="../../blogs/6_noVNC/error.png" alt="breakout" width="500"><br>This was a whole ass day just to tuck evilginx into a weird container and keep it safe... god i hope it works. Giant shoutout to mrd0x, this was an awesome dive to go down and gives me more ideas of how this could be used.</p>
 <h4 id="future-improvements">future improvements:</h4>
 <p>Definitely some scripting to automate spinning up all the instances cause I&apos;m annoyed at having to use excel sheets but it does the job, I also bloated the container image from 600 to 850 which still isnt bad, just messy. </p>
 <pre><code>scrap notes on docker commands

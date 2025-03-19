@@ -1,1 +1,9 @@
+/_book/
+/node_modules/
+/book.pdf
+/book.mobi
+/book.epub
+.DS_Store
+img/Thumbs.db
+blogs/.DS_Store
 .DS_Store
