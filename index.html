@@ -1,87 +1,461 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>fhlipzero.io</title>
-    <link rel="shortcut icon" href="./avatar.ico">
-    <link rel="stylesheet" href="./styles/website.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-    <div class="book">
-        <div class="book-summary">
-            <div class="book-header">
-                <h1><a href="./index.html">fhlipzero.io</a></h1>
-            </div>
-            <ul class="summary">
-                <li><a href="./blogs/6_noVNC/noVNC.md">Phishy noVNC</a></li>
-                <li><a href="./blogs/4_m1_macs/m1_macs.md">Attacking M1 Macs</a></li>
-                <li><a href="./blogs/1_tripping_xss/tripping-over-xss.md">Tripping Over XSS</a></li>
-                <li><a href="./blogs/2_weblogic/weblogic-replication-ftw-kinda.md">Weblogic</a></li>
-                <li><a href="./blogs/3_dante/dante.md">Dante</a></li>
-            </ul>
-        </div>
-        <div class="book-body">
-            <div class="body-inner">
-                <div class="page-wrapper">
-                    <div class="page-inner">
-                        <section class="normal markdown-section">
-                            <h1 id="fhlipzero-io">fhlipzero.io</h1>
-                            <h4 id="general-writeups-pentest-notes-tinkering">General writeups, Pentest notes, Tinkering</h4>
-                            <hr>
-                            <h4 id="most-recent-post">Most Recent Post</h4>
-                            <p><a href="./blogs/6_noVNC/noVNC.md">Phishy noVNC</a></p>
-                            <p><a href="./notes/mobile/oneplus_7_root.md">Android test phone setup</a></p>
-                            <p><a href="./blogs/4_m1_macs/m1_macs.md">Attacking M1 Macs</a></p>
-                            <p><a href="./notes/linux/one-liners.md">Linux oneliner dumps</a></p>
-                            <hr>
-                            <p>Note: I'll do my best to cite where I can but there's a good chance notes here are from some other place</p>   
-                            <p>Socials:</p>  
-                            <p><a href="https://www.hackthebox.com/home/users/profile/17794"><img src="https://www.hackthebox.com/badge/image/17794" alt="fhlipZero"/></a></p>
-                            <p><a href="https://twitter.com/fhlipZero" class="twitter-follow-button" data-show-count="false">Follow @fhlipZero</a></p>
-                            <p><a href="https://www.linkedin.com/in/philip-holbrook-526245101/">https://www.linkedin.com/in/philip-holbrook-526245101/</a></p>
-                            
-                            <div class="badge-container">
-                              <div class="badge">
-                                <a href="https://api.badgr.io/public/assertions/DDmuuteJRZ-RrfZ9GHIXPA"><img width="120px" height="120px" src="https://api.eu.badgr.io/public/assertions/f6YpB555TOmOVend0dZhAw/image"></a>
-                                <p class="badgr-badge-name">Red Team Operator</p>
-                                <p class="badgr-badge-date"><strong>Awarded: </strong>May 3, 2020</p>
-                                <p><a class="badgr-badge-verify" target="_blank" href="https://badgecheck.io?url=https%3A%2F%2Fapi.badgr.io%2Fpublic%2Fassertions%2FDDmuuteJRZ-RrfZ9GHIXPA">VERIFY</a></p>
-                              </div>
-                              
-                              <div class="badge">
-                                <a href="https://api.eu.badgr.io/public/assertions/yOvoIMWnRLOARPOYWpXcvw?identity__email=fhlipzero%40gmail.com"><img width="120px" height="120px" src="https://api.eu.badgr.io/public/assertions/yOvoIMWnRLOARPOYWpXcvw/image"></a>
-                                <p class="badgr-badge-name">Red Team Lead</p>
-                                <p class="badgr-badge-date"><strong>Awarded: </strong>May 6, 2024</p>
-                                <p><a class="badgr-badge-verify" target="_blank" href="https://badgecheck.io?url=https%3A%2F%2Fapi.eu.badgr.io%2Fpublic%2Fassertions%2FyOvoIMWnRLOARPOYWpXcvw%3Fidentity__email%3Dfhlipzero%2540gmail.com&amp;">VERIFY</a></p>
-                              </div>
-                            </div>
 
-                            <div class="certificates">
-                              <img src="./img/oscp.jpeg" alt="oscp">
-                              <img src="./img/sec+.jpeg" alt="sec+">
-                              <img src="./img/apple_pro.JPG" alt="apple_pro">
-                              <img src="./img/hdi.jpeg" alt="hdi_national">
-                            </div>
-                            <br>
-                            <a href="https://www.thinkhdi.com/Landing/2018-Award-Finalists/DST-of-the-year-finalist-3">HDI 2018 National Finalist</a>
-                        </section>
-                    </div>
-                </div>
-            </div>
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>fhlipzero.io · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-wide-page/wide.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="blogs/6_noVNC/noVNC.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    fhlipzero.io
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="blogs/6_noVNC/noVNC.html">
+            
+                <a href="blogs/6_noVNC/noVNC.html">
+            
+                    
+                    Phishy noVNC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="blogs/4_m1_macs/m1_macs.html">
+            
+                <a href="blogs/4_m1_macs/m1_macs.html">
+            
+                    
+                    M1 Macs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="blogs/1_tripping_xss/tripping-over-xss.html">
+            
+                <a href="blogs/1_tripping_xss/tripping-over-xss.html">
+            
+                    
+                    Tripping Over XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="blogs/2_weblogic/weblogic-replication-ftw-kinda.html">
+            
+                <a href="blogs/2_weblogic/weblogic-replication-ftw-kinda.html">
+            
+                    
+                    Weblogic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="blogs/3_dante/dante.html">
+            
+                <a href="blogs/3_dante/dante.html">
+            
+                    
+                    Dante
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="blogs/5_gitbook/gitbook_readme.html">
+            
+                <a href="blogs/5_gitbook/gitbook_readme.html">
+            
+                    
+                    Gitbook setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter active" data-level="3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Notes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="notes/windows/windows_readme.html">
+            
+                <a href="notes/windows/windows_readme.html">
+            
+                    
+                    Windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="notes/mac/mac_readme.html">
+            
+                <a href="notes/mac/mac_readme.html">
+            
+                    
+                    Macs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="notes/linux/linux_readme.html">
+            
+                <a href="notes/linux/linux_readme.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.3.1" data-path="notes/linux/one-liners.html">
+            
+                <a href="notes/linux/one-liners.html">
+            
+                    
+                    one-liners
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.2" data-path="notes/linux/shells.html">
+            
+                <a href="notes/linux/shells.html">
+            
+                    
+                    shells
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="notes/mobile/oneplus_7_root.html">
+            
+                <a href="notes/mobile/oneplus_7_root.html">
+            
+                    
+                    Mobile
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >fhlipzero.io</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h4 id="general-writeups-pentest-notes-tinkering">General writeups, Pentest notes, Tinkering</h4>
+<hr>
+<h4 id="most-recent-post">Most Recent Post</h4>
+<p><a href="blogs/6_noVNC/noVNC.html">Phishy noVNC</a></p>
+<p><a href="notes/mobile/oneplus_7_root.html">Android test phone setup</a></p>
+<p><a href="blogs/4_m1_macs/m1_macs.html">Attacking M1 Macs</a></p>
+<p><a href="notes/linux/one-liners.html">Linux oneliner dumps</a></p>
+<hr>
+<p>Note: I&apos;ll do my best to cite where I can but there&apos;s a good chance notes here are from some other place<br>Socials:<br><a href="https://www.hackthebox.com/home/users/profile/17794" target="_blank">
+<img src="https://www.hackthebox.com/badge/image/17794" alt="fhlipZero">
+</a></p>
+<p><a href="https://twitter.com/fhlipZero?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false" target="_blank">Follow @fhlipZero</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<p><a href="https://www.linkedin.com/in/philip-holbrook-526245101/" target="_blank">https://www.linkedin.com/in/philip-holbrook-526245101/</a>  </p>
+<div style="display: flex; flex-direction: row; gap: 20px; flex-wrap: wrap;">
+  <div style="flex: 0 0 auto;">
+    <a href="https://api.badgr.io/public/assertions/DDmuuteJRZ-RrfZ9GHIXPA" target="_blank"><img width="120px" height="120px" src="https://api.eu.badgr.io/public/assertions/f6YpB555TOmOVend0dZhAw/image"></a>
+    <p class="badgr-badge-name" style="hyphens: auto; overflow-wrap: break-word; word-wrap: break-word; margin: 0; font-size: 16px; font-weight: 600; font-style: normal; font-stretch: normal; line-height: 1.25; letter-spacing: normal; text-align: left; color: #d5eef0;">Red Team Operator</p>
+    <p class="badgr-badge-date" style="margin: 0; font-size: 12px; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #555555;"><strong style="font-size: 12px; font-weight: bold; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #d5eef0;">Awarded: </strong>May 3, 2020</p>
+    <p style="margin: 16px 0; padding: 0;"><a class="badgr-badge-verify" target="_blank" href="https://badgecheck.io?url=https%3A%2F%2Fapi.badgr.io%2Fpublic%2Fassertions%2FDDmuuteJRZ-RrfZ9GHIXPA" style="box-sizing: content-box; display: flex; align-items: center; justify-content: center; margin: 0; font-size:14px; font-weight: bold; width: 48px; height: 16px; border-radius: 4px; border: solid 1px black; text-decoration: none; padding: 6px 16px; margin: 16px 0; color: #d5eef0;">VERIFY</a></p>
+  </div>
+
+<p>  <div style="flex: 0 0 auto;">
+    <a href="https://api.eu.badgr.io/public/assertions/yOvoIMWnRLOARPOYWpXcvw?identity__email=fhlipzero%40gmail.com" target="_blank"><img width="120px" height="120px" src="https://api.eu.badgr.io/public/assertions/yOvoIMWnRLOARPOYWpXcvw/image"></a>
+    <p class="badgr-badge-name" style="hyphens: auto; overflow-wrap: break-word; word-wrap: break-word; margin: 0; font-size: 16px; font-weight: 600; font-style: normal; font-stretch: normal; line-height: 1.25; letter-spacing: normal; text-align: left; color: #d5eef0;">Red Team Lead</p>
+    <p class="badgr-badge-date" style="margin: 0; font-size: 12px; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #555555;"><strong style="font-size: 12px; font-weight: bold; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #d5eef0;">Awarded: </strong>May 6, 2024</p>
+    <p style="margin: 16px 0; padding: 0;"><a class="badgr-badge-verify" target="_blank" href="https://badgecheck.io?url=https%3A%2F%2Fapi.eu.badgr.io%2Fpublic%2Fassertions%2FyOvoIMWnRLOARPOYWpXcvw%3Fidentity__email%3Dfhlipzero%2540gmail.com&amp;" style="box-sizing: content-box; display: flex; align-items: center; justify-content: center; margin: 0; font-size:14px; font-weight: bold; width: 48px; height: 16px; border-radius: 4px; border: solid 1px black; text-decoration: none; padding: 6px 16px; margin: 16px 0; color: #d5eef0;">VERIFY</a></p>
+  </div></p>
+<script async="async" src="https://eu.badgr.com/assets/widgets.bundle.js"></script>
+
+<p><img src="img/oscp.jpeg" alt="oscp" width="200/"><img src="img/sec+.jpeg" alt="sec+.jpeg" width="200/"><img src="img/apple_pro.JPG" alt="apple_pro" width="200/"><img src="img/hdi.jpeg" alt="hdi_national" width="200/"></p>
+<p><br>
+<a href="https://www.thinkhdi.com/Landing/2018-Award-Finalists/DST-of-the-year-finalist-3" target="_blank">HDI 2018 National Finalist</a>
+<br>testing github pages workflow</p>
+</div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
         </div>
     </div>
-    
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="blogs/6_noVNC/noVNC.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Phishy noVNC">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Add the capability to view markdown files
-        document.querySelectorAll('a[href$=".md"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.location.href = this.getAttribute('href');
-            });
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"fhlipzero.io","level":"1.1","depth":1,"next":{"title":"Phishy noVNC","level":"2.1","depth":1,"path":"blogs/6_noVNC/noVNC.md","ref":"blogs/6_noVNC/noVNC.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-favicon","remove-published-with-link","-sharing","collapsible-menu","wide-page"],"root":"/","styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"wide-page":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"avatar.ico","custom-favicon":{},"remove-published-with-link":{},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"fontsettings":{"theme":"night"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"README.md","mtime":"2025-03-19T11:34:17.179Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-03-19T11:55:05.958Z"},"basePath":".","book":{"language":""}});
         });
-    });
     </script>
-</body>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-remove-published-with-link/remove-link.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
 </html>
+

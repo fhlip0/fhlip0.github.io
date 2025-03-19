@@ -2,8 +2,9 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
-    color: #e0e0e0;
+    color: #333;
     background-color: #1e2129;
+    color: #e0e0e0;
     margin: 0;
     padding: 0;
 }
@@ -88,50 +89,7 @@ body {
     margin: 20px 0;
 }
 
-/* Badge styling */
-.badgr-badge-verify {
-    background-color: #222;
-    color: #d5eef0 !important;
-}
-
-.badgr-badge-name {
-    font-weight: bold;
-}
-
-/* Fix for badges display */
-.badge-container {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin: 20px 0;
-}
-
-.badge {
-    flex: 0 0 auto;
-}
-
-/* Certificate images */
-.certificates {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.certificates img {
-    width: 200px;
-    height: auto;
-    max-width: 100%;
-}
-
-/* Make images responsive */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Media queries for responsive layout */
+/* Style adjustments for smaller screens */
 @media (max-width: 768px) {
     .book {
         flex-direction: column;
@@ -143,8 +101,33 @@ img {
         border-right: none;
         border-bottom: 1px solid #3a3f4c;
     }
-
-    .certificates {
-        flex-direction: column;
-    }
 }
+
+/* Badge styling */
+.badgr-badge-verify {
+    background-color: #222;
+    color: #d5eef0 !important;
+}
+
+.badgr-badge-name {
+    font-weight: bold;
+}
+
+/* Fix for badges display */
+div[style="display: flex; flex-direction: row; gap: 20px; flex-wrap: wrap;"] {
+    margin: 20px 0;
+}
+
+/* Make images responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.page-inner {
+    width: 100%;
+  }
+  title {
+    display: "fhlipZero.io";
+  }
+  
