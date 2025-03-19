@@ -1,0 +1,1 @@
+#### braindump of my general notes in infosec / lab setups
