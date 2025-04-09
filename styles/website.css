@@ -5,3 +5,78 @@
     display: "fhlipZero.io";
   }
   
+/* Force dark theme */
+.book.color-theme-1 {
+  background-color: #111;
+}
+
+.book {
+  background-color: #111;
+}
+
+.book-summary {
+  background-color: #1a1a1a;
+  color: #c8c8c8;
+}
+
+.book-body {
+  background-color: #111;
+  color: #c8c8c8;
+}
+
+.navigation {
+  background-color: #1a1a1a;
+}
+
+/* Links */
+.book-summary ul.summary li a,
+.book-summary ul.summary li span {
+  color: #c8c8c8;
+}
+
+.book-summary ul.summary li.active > a {
+  color: #008cff;
+}
+
+/* Code blocks */
+.markdown-section pre {
+  background-color: #1a1a1a;
+  color: #c8c8c8;
+}
+
+.markdown-section code {
+  background-color: #1a1a1a;
+  color: #c8c8c8;
+}
+
+/* Headers */
+.markdown-section h1,
+.markdown-section h2,
+.markdown-section h3,
+.markdown-section h4,
+.markdown-section h5,
+.markdown-section h6 {
+  color: #c8c8c8;
+}
+
+/* Text */
+.markdown-section {
+  color: #c8c8c8;
+}
+
+/* Links in content */
+.markdown-section a {
+  color: #008cff;
+}
+
+/* Search input */
+#book-search-input {
+  background-color: #1a1a1a;
+  color: #c8c8c8;
+}
+
+#book-search-input input {
+  background-color: #1a1a1a;
+  color: #c8c8c8;
+}
+  
