@@ -16,27 +16,41 @@
   color: transparent !important;
 }
 
-/* Force dark theme */
-.book.color-theme-1 {
-  background-color: #111;
+.book-header h1 a::before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-image: url('../avatar.ico');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px;
 }
 
+/* Theme colors */
+.book.color-theme-1,
 .book {
-  background-color: #111;
+  background-color: #1e2129;
 }
 
 .book-summary {
-  background-color: #1a1a1a;
-  color: #c8c8c8;
+  background-color: #282c34;
+  color: #abb2bf;
+  border-right: 1px solid #181a1f;
 }
 
 .book-body {
-  background-color: #111;
-  color: #c8c8c8;
+  background-color: #1e2129;
+  color: #abb2bf;
+}
+
+.book-header {
+  background-color: #282c34;
+  border-bottom: 1px solid #181a1f;
 }
 
 .navigation {
-  background-color: #1a1a1a;
+  background-color: #282c34;
 }
 
 /* Hide navigation arrows */
@@ -48,22 +62,24 @@
 /* Links */
 .book-summary ul.summary li a,
 .book-summary ul.summary li span {
-  color: #c8c8c8;
+  color: #abb2bf;
 }
 
 .book-summary ul.summary li.active > a {
-  color: #008cff;
+  color: #61afef;
 }
 
 /* Code blocks */
 .markdown-section pre {
-  background-color: #1a1a1a;
-  color: #c8c8c8;
+  background-color: #282c34;
+  color: #abb2bf;
+  border: 1px solid #181a1f;
 }
 
 .markdown-section code {
-  background-color: #1a1a1a;
-  color: #c8c8c8;
+  background-color: #282c34;
+  color: #abb2bf;
+  border: 1px solid #181a1f;
 }
 
 /* Headers */
@@ -73,27 +89,50 @@
 .markdown-section h4,
 .markdown-section h5,
 .markdown-section h6 {
-  color: #c8c8c8;
+  color: #abb2bf;
 }
 
 /* Text */
 .markdown-section {
-  color: #c8c8c8;
+  color: #abb2bf;
 }
 
 /* Links in content */
 .markdown-section a {
-  color: #008cff;
+  color: #61afef;
 }
 
 /* Search input */
 #book-search-input {
-  background-color: #1a1a1a;
-  color: #c8c8c8;
+  background-color: #282c34;
+  border-bottom: 1px solid #181a1f;
 }
 
 #book-search-input input {
-  background-color: #1a1a1a;
-  color: #c8c8c8;
+  background-color: #282c34;
+  color: #abb2bf;
+}
+
+/* Font settings dropdown */
+.dropdown-menu {
+  background-color: #282c34;
+  border: 1px solid #181a1f;
+}
+
+.dropdown-menu .dropdown-caret .caret-inner {
+  border-bottom: 9px solid #282c34;
+}
+
+.dropdown-menu .buttons {
+  border-color: #181a1f;
+}
+
+.dropdown-menu .button {
+  color: #abb2bf;
+  background: #282c34;
+}
+
+.dropdown-menu .button:hover {
+  color: #61afef;
 }
   
