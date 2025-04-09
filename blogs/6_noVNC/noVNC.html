@@ -1,7 +1,7 @@
 
 <!DOCTYPE HTML>
-<html class="color-theme-2" data-theme="dark" class="color-theme-2" data-theme="dark" class="color-theme-2" data-theme="dark" class="color-theme-2" data-theme="dark" lang="" >
-    <head><script></script>
+<html lang="" >
+    <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Phishy noVNC · GitBook</title>
@@ -66,11 +66,11 @@
     <link rel="next" href="../4_m1_macs/m1_macs.html" />
     
     
-    <link rel="prev" href="../../" />
+    <link rel="prev" href="../../9_lets_build_a_c2_with_ai_(this_is_horrible" />
     
 
-    <script>document.documentElement.classList.add("color-theme-2"); document.documentElement.dataset.theme="dark"; localStorage.setItem("theme", "2");</script><meta name="color-scheme" content="dark"><script src="/force-dark.js"></script><meta name="color-scheme" content="dark"><script src="/dark-theme.js"></script><script src="/dark-theme.js"></script><meta name="color-scheme" content="dark"><script src="/dark-theme.js"></script><script src="/dark-theme.js"></script><meta name="color-scheme" content="dark"><script src="/dark-theme.js"></script><script src="/dark-theme.js"></script></head>
-    <body class="color-theme-2" class="color-theme-2" class="color-theme-2" class="color-theme-2">
+    </head>
+    <body>
         
 <div class="book">
     <div class="book-summary">
@@ -115,7 +115,20 @@
         
         
     
-        <li class="chapter active" data-level="2.1" data-path="noVNC.html">
+        <li class="chapter " data-level="2.1" data-path="../../9_lets_build_a_c2_with_ai_(this_is_horrible">
+            
+                <span>
+            
+                    
+                    Carrier C2 build with Claude (in-progress)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="noVNC.html">
             
                 <a href="noVNC.html">
             
@@ -128,7 +141,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2" data-path="../4_m1_macs/m1_macs.html">
+        <li class="chapter " data-level="2.3" data-path="../4_m1_macs/m1_macs.html">
             
                 <a href="../4_m1_macs/m1_macs.html">
             
@@ -141,7 +154,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="../1_tripping_xss/tripping-over-xss.html">
+        <li class="chapter " data-level="2.4" data-path="../1_tripping_xss/tripping-over-xss.html">
             
                 <a href="../1_tripping_xss/tripping-over-xss.html">
             
@@ -154,7 +167,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4" data-path="../2_weblogic/weblogic-replication-ftw-kinda.html">
+        <li class="chapter " data-level="2.5" data-path="../2_weblogic/weblogic-replication-ftw-kinda.html">
             
                 <a href="../2_weblogic/weblogic-replication-ftw-kinda.html">
             
@@ -167,7 +180,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.5" data-path="../3_dante/dante.html">
+        <li class="chapter " data-level="2.6" data-path="../3_dante/dante.html">
             
                 <a href="../3_dante/dante.html">
             
@@ -180,7 +193,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.6" data-path="../5_gitbook/gitbook_readme.html">
+        <li class="chapter " data-level="2.7" data-path="../5_gitbook/gitbook_readme.html">
             
                 <a href="../5_gitbook/gitbook_readme.html">
             
@@ -383,7 +396,7 @@ docker run -it -p6901:6901 accetto/ubuntu-vnc-xfce-firefox-g3 /bin/bash
 <li>yanked headless from sudo group - gpasswd -d headless sudo</li>
 <li>Finally an updated password for the VNC session - lets make it obnoxious so the final URL looks somewhat better - <a href="http://fhlipzero.xxx/okta.html?autoconnect=true&amp;resize=remote&amp;password=9VO4e1wXMO2E3MsjKB6BYng3WaC33c3d6NzFU195v" target="_blank">http://fhlipzero.xxx/okta.html?autoconnect=true&amp;resize=remote&amp;password=9VO4e1wXMO2E3MsjKB6BYng3WaC33c3d6NzFU195v</a></li>
 </ul>
-<p><img src="../../blogs/6_noVNC/pretty.png" alt="img" width="500"></p>
+<p><img src="pretty.png" alt="img" width="500"></p>
 <p>Happy with the results, lets lock it down and get it ready for mass deployment: <code>docker commit ID firefox/client:auto</code></p>
 <p>I tinkered with getting firefox to open to my phishing page automatically on docker run via a Dockerfile or docker-compose.yml but... I&apos;m shit at docker and the clock is ticking. So lazy way it is and this is all I&apos;m running to get all the containers up and running with the phishing page already open and in kiosk mode:</p>
 <pre><code>docker run -d --add-host evilginx_domain:ip -p6901:6901 --name user1 firefox/client:auto
@@ -462,7 +475,7 @@ Setup the virtualhost file in apache to handle the subdomains
 Evilginx is a single lure for me to capture creds on, I can track per user by the noVNC logs later
 </code></pre><p>My t3a (2 vCPU and 8GB ram) is running 20 containers pretty well right now   </p>
 <p>Some OPSEC considerations - kiosk breakout is very possible, you can easily get into the firefox settings and then start roaming the system as the docker headless user. I was able to pop the browser console open by hitting ALT + SHIFT + J, then hit right click the menu bar and &quot;Minimize all other windows&quot;. From there its a desktop right click and &quot;Terminal&quot; away from desktop access here. </p>
-<p><img src="../../blogs/6_noVNC/error.png" alt="breakout" width="500"><br>This was a whole ass day just to tuck evilginx into a weird container and keep it safe... god i hope it works. Giant shoutout to mrd0x, this was an awesome dive to go down and gives me more ideas of how this could be used.</p>
+<p><img src="error.png" alt="breakout" width="500"><br>This was a whole ass day just to tuck evilginx into a weird container and keep it safe... god i hope it works. Giant shoutout to mrd0x, this was an awesome dive to go down and gives me more ideas of how this could be used.</p>
 <h4 id="future-improvements">future improvements:</h4>
 <p>Definitely some scripting to automate spinning up all the instances cause I&apos;m annoyed at having to use excel sheets but it does the job, I also bloated the container image from 600 to 850 which still isnt bad, just messy. </p>
 <pre><code>scrap notes on docker commands
@@ -506,7 +519,7 @@ sudo a2enmod rewrite
 
             
                 
-                <a href="../../" class="navigation navigation-prev " aria-label="Previous page: fhlipzero.io">
+                <a href="../../9_lets_build_a_c2_with_ai_(this_is_horrible" class="navigation navigation-prev " aria-label="Previous page: Carrier C2 build with Claude (in-progress)">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -522,7 +535,7 @@ sudo a2enmod rewrite
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Phishy noVNC","level":"2.1","depth":1,"next":{"title":"M1 Macs","level":"2.2","depth":1,"path":"blogs/4_m1_macs/m1_macs.md","ref":"blogs/4_m1_macs/m1_macs.md","articles":[]},"previous":{"title":"fhlipzero.io","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-favicon","remove-published-with-link","-sharing","collapsible-menu","wide-page"],"root":"/","styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"wide-page":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"avatar.ico","custom-favicon":{},"remove-published-with-link":{},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"fontsettings":{"theme":"night"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"blogs/6_noVNC/noVNC.md","mtime":"2022-04-03T02:27:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-03-19T11:57:59.624Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Phishy noVNC","level":"2.2","depth":1,"next":{"title":"M1 Macs","level":"2.3","depth":1,"path":"blogs/4_m1_macs/m1_macs.md","ref":"blogs/4_m1_macs/m1_macs.md","articles":[]},"previous":{"title":"Carrier C2 build with Claude (in-progress)","level":"2.1","depth":1,"path":"9_lets_build_a_c2_with_ai_(this_is_horrible","ref":"9_lets_build_a_c2_with_ai_(this_is_horrible","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-favicon","remove-published-with-link","-sharing","collapsible-menu","wide-page","livereload"],"root":"/","styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"collapsible-menu":{},"livereload":{},"search":{},"wide-page":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"avatar.ico","custom-favicon":{},"remove-published-with-link":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"fontsettings":{"theme":"night"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"blogs/6_noVNC/noVNC.md","mtime":"2022-04-03T02:27:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-04-09T18:30:45.879Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -537,6 +550,10 @@ sudo a2enmod rewrite
     
         
         <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

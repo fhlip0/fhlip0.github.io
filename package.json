@@ -2,6 +2,9 @@
   "dependencies": {
     "collapsible-menu": "^1.0.10",
     "gitbook-plugin-remove-published-with-link": "^1.0.3",
+    "gitbook-plugin-styles-less": "^1.0.0",
+    "gitbook-plugin-theme-comscore": "0.0.3",
+    "gitbook-plugin-theme-default": "^1.0.7",
     "gitbook-plugin-wide-page": "^1.0.1",
     "graceful-fs": "^4.2.9"
   }
