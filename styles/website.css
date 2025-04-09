@@ -1,10 +1,21 @@
 .page-inner {
     width: 100%;
-  }
-  title {
-    display: "fhlipZero.io";
-  }
-  
+}
+
+/* Logo in header */
+.book-header h1 {
+  opacity: 1 !important;
+  visibility: visible !important;
+  height: auto !important;
+  padding: 0 !important;
+}
+
+.book-header h1 a {
+  display: flex !important;
+  align-items: center;
+  color: transparent !important;
+}
+
 /* Force dark theme */
 .book.color-theme-1 {
   background-color: #111;
@@ -26,6 +37,12 @@
 
 .navigation {
   background-color: #1a1a1a;
+}
+
+/* Hide navigation arrows */
+.navigation.navigation-prev,
+.navigation.navigation-next {
+  display: none !important;
 }
 
 /* Links */
